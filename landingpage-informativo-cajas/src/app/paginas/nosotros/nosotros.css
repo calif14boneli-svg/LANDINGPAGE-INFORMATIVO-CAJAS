@@ -1,0 +1,137 @@
+:host {
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Header Section */
+.nosotros-header {
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+        url('https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 0;
+    color: white;
+    text-align: center;
+}
+
+.nosotros-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.nosotros-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Content Section */
+.nosotros-content {
+    padding: 6rem 0;
+}
+
+.text-block h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.text-block p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.image-block img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Mision Vision Section */
+.mision-vision {
+    background: #f8f9fa;
+    padding: 6rem 0;
+}
+
+.mision-vision .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.card h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.6;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.card ul li {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.card ul li:before {
+    content: '✓';
+    color: #e67e22;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+@media (max-width: 992px) {
+    .mision-vision .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nosotros-content .grid {
+        grid-template-columns: 1fr;
+    }
+}

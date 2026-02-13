@@ -1,0 +1,154 @@
+:host {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 1rem;
+}
+
+.hero h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.hero h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    line-height: 1.1;
+}
+
+.hero a {
+    background: #e67e22;
+    color: white;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+}
+
+.hero a:hover {
+    background: #d35400;
+    transform: translateY(-3px);
+}
+
+/* Productos Section */
+.productos {
+    padding: 5rem 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    background: #f9f9f9;
+}
+
+.item {
+    background: white;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.item:hover {
+    transform: translateY(-10px);
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.item-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item h5 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    margin: 0 0 1rem 0;
+    color: #2c3e50;
+}
+
+.item p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.item a {
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.item a:after {
+    content: ' →';
+    margin-left: 5px;
+    transition: margin-left 0.3s;
+}
+
+.item a:hover:after {
+    margin-left: 10px;
+}
+
+/* Empresa Section */
+.empresa {
+    padding: 5rem 15%;
+    text-align: center;
+}
+
+.empresa h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.empresa p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+@media (max-width: 768px) {
+    .hero h4 {
+        font-size: 2.2rem;
+    }
+
+    .productos {
+        padding: 3rem 5%;
+    }
+}

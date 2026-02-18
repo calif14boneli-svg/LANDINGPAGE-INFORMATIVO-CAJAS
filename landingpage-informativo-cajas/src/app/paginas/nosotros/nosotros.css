@@ -26,15 +26,34 @@
     text-align: center;
 }
 
+/* ===== ANIMACION SUAVE ===== */
+@keyframes smoothReveal {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
 .nosotros-header h2 {
     font-family: 'Outfit', sans-serif;
     font-size: 3rem;
     margin-bottom: 1rem;
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(40px);
+    animation: smoothReveal 1.6s ease forwards;
+    animation-delay: 0.4s;
 }
 
 .nosotros-header p {
     font-size: 1.2rem;
     opacity: 0.9;
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(40px);
+    animation: smoothReveal 1.6s ease forwards;
+    animation-delay: 0.4s;
 }
 
 /* Content Section */
@@ -87,9 +106,23 @@
 }
 
 .card .icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
 }
+
+.card .icon svg {
+  width: 32px;
+  height: 32px;
+}
+
 
 .card h4 {
     font-family: 'Outfit', sans-serif;
@@ -135,3 +168,46 @@
         grid-template-columns: 1fr;
     }
 }
+
+.section-title {
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+}
+
+/* IDENTIDAD */
+.identidad {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+.identidad-box {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.slogan {
+  font-size: 1.8rem;
+  color: #e67e22;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* HISTORIA */
+.historia {
+  background: #f8f9fa;
+  padding: 5rem 0;
+}
+
+.historia p {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+}
+

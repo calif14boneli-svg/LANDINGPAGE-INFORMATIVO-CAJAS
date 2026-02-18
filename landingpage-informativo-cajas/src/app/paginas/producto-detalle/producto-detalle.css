@@ -1,0 +1,125 @@
+/* HERO */
+.detalle-hero {
+  background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
+              url('https://images.unsplash.com/photo-1553413077-190dd305871c');
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0;
+  color: white;
+  text-align: center;
+}
+
+.detalle-hero h2 {
+  font-size: 2.5rem;
+}
+
+/* CONTENIDO */
+.detalle-contenido {
+  padding: 6rem 0;
+  background: white;
+}
+
+.detalle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* 🔥 imagen más grande */
+  gap: 4rem;
+  align-items: center;
+}
+
+.detalle-texto h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.detalle-texto h4 {
+  margin-top: 1.8rem;
+  font-size: 1.2rem;
+  color: #e67e22;
+}
+
+.detalle-texto p {
+  line-height: 1.7;
+  color: #555;
+}
+
+/* IMAGEN GRANDE */
+.detalle-imagen {
+  display: flex;
+  justify-content: center;
+}
+
+.detalle-imagen img {
+  width: 100%;
+  max-width: 600px; /* 🔥 tamaño controlado */
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+.detalle-imagen img:hover {
+  transform: scale(1.03);
+}
+
+/* FICHA */
+.ficha-tecnica {
+  background: #f8f9fa;
+  padding: 3rem 0;   /* 🔥 antes 6rem */
+}
+
+.ficha-card {
+  background: #cfa15a;
+  padding: 1.5rem;   /* 🔥 antes 2rem */
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;       /* 🔥 antes 2rem */
+  max-width: 1000px; /* 🔥 controla el ancho */
+  margin: 0 auto;    /* centra el bloque */
+}
+
+.ficha-imagen {
+  background: #2c3e50;
+  padding: 1.2rem;   /* 🔥 más compacto */
+  border-radius: 12px;
+  height: 300px;     /* 🔥 antes 450px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ficha-imagen img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.ficha-tabla {
+  background: #2c3e50;
+  padding: 1.5rem;   /* 🔥 antes 2rem */
+  border-radius: 12px;
+  color: white;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-cotizar {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+  background: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn-cotizar:hover {
+  background: #e67e22;
+  color: white;
+}

@@ -4,7 +4,8 @@
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     height: 70vh;
@@ -17,14 +18,21 @@
     padding: 0 1rem;
 }
 
+/* ===== TEXTO SUPERIOR ===== */
 .hero h3 {
     font-family: 'Outfit', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
+
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(30px);
+    animation: smoothReveal 1s ease forwards;
 }
 
+/* ===== TITULO PRINCIPAL ===== */
 .hero h4 {
     font-family: 'Outfit', sans-serif;
     font-size: 3.5rem;
@@ -32,8 +40,15 @@
     margin-bottom: 2rem;
     max-width: 800px;
     line-height: 1.1;
+
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(40px);
+    animation: smoothReveal 1.1s ease forwards;
+    animation-delay: 0.4s;
 }
 
+/* ===== BOTON ===== */
 .hero a {
     background: #e67e22;
     color: white;
@@ -44,11 +59,26 @@
     font-size: 1.1rem;
     transition: transform 0.3s, background 0.3s;
     box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(30px);
+    animation: smoothReveal 1.2s ease forwards;
+    animation-delay: 0.8s;
 }
 
 .hero a:hover {
     background: #d35400;
     transform: translateY(-3px);
+}
+
+/* ===== ANIMACION SUAVE ===== */
+@keyframes smoothReveal {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
 }
 
 /* Productos Section */

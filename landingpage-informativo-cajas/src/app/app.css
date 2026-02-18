@@ -1,0 +1,65 @@
+.contact-info {
+    display: flex;
+    align-items: center;
+    /* 🔥 Esto los alinea a la misma altura */
+}
+
+.contact-info img {
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.item {
+    background: white;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== CONTACTO ===== */
+.navbar {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+/* Línea animada */
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #e67e22;
+    transition: width 0.3s ease;
+}
+
+/* Hover */
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* Página activa (se mantiene la línea) */
+.navbar a.active::after {
+    width: 100%;
+}
+
+/* Opcional: cambiar color del texto activo */
+.navbar a.active {
+    color: #e67e22;
+}

@@ -1,14 +1,15 @@
 <header>
     <div class="contact-info">
+        <img src="https://decine21.com/images/noticias/0001/john-cena-coyote-acme.jpg">
         ventas@inpcar.com | 986-044097 - 980-077481
     </div>
-    <nav>
+    <nav class="navbar">
         <ul>
-            <li><a routerLink="/">Inicio</a></li>
-            <li><a routerLink="/nosotros">Nosotros</a></li>
-            <li><a routerLink="/servicios">Servicios</a></li>
-            <li><a routerLink="/galeria">Galería</a></li>
-            <li><a routerLink="/contacto">Contacto</a></li>
+            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a></li>
+            <li><a routerLink="/nosotros" routerLinkActive="active">Nosotros</a></li>
+            <li><a routerLink="/servicios" routerLinkActive="active">Servicios</a></li>
+            <li><a routerLink="/galeria" routerLinkActive="active">Galería</a></li>
+            <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
         </ul>
     </nav>
 </header>

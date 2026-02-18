@@ -10,4 +10,11 @@ import { RouterModule } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('landingpage-informativo-cajas');
+
+  isScrolled = false;
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }

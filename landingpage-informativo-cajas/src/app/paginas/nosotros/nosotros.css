@@ -93,12 +93,41 @@
 }
 
 .card {
-    background: white;
-    padding: 3rem 2rem;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+
+  /* NUEVO */
+  border: 1.5px solid #e6e6e6;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #e67e22;
+  box-shadow: 0 12px 30px rgba(230, 126, 34, 0.15);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* CENTRADO HORIZONTAL */
+  gap: 3px;
+  margin-bottom: 1.5rem;
+}
+
+.card-header h4 {
+  margin: 3;
+  top: -7px;
+  position: relative;
+}
+
+.card p,
+.card ul {
+  text-align: left;
 }
 
 .card:hover {
@@ -106,21 +135,21 @@
 }
 
 .card .icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 1.5rem auto;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: linear-gradient(135deg, #e67e22, #d35400);
-  border-radius: 50%;
+  border-radius: 40%;
   color: white;
-  box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
+  box-shadow: 0 8px 20px rgba(230, 126, 34, 0.25);
 }
 
 .card .icon svg {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
 }
 
 
@@ -157,6 +186,16 @@
     color: #e67e22;
     font-weight: bold;
     margin-right: 10px;
+}
+
+.card p,
+.card ul {
+  text-align: center;
+}
+
+.card ul {
+  display: inline-block;
+  text-align: left; /* mantiene lista ordenada */
 }
 
 @media (max-width: 992px) {

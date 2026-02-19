@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-producto-detalle',

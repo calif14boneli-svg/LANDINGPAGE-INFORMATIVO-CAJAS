@@ -28,8 +28,10 @@
 
     <!-- IMAGEN GRANDE -->
     <div class="detalle-imagen">
-      <img [src]="producto?.imagen" alt="">
-    </div>
+  <div class="image-wrapper">
+    <img [src]="producto?.imagen" [alt]="producto?.nombre">
+  </div>
+</div>
 
   </div>
 </section>
@@ -71,8 +73,6 @@
           <span>Personalizado</span>
           <span>1 color o más</span>
         </div>
-
-        <button class="btn-cotizar">COTIZAR</button>
 
       </div>
 

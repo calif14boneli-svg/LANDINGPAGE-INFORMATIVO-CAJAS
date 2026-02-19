@@ -1,0 +1,81 @@
+<!-- HERO SUPERIOR -->
+<section class="detalle-hero">
+  <div class="container">
+    <h2>{{ producto?.nombre }}</h2>
+  </div>
+</section>
+
+<!-- DESCRIPCIÓN -->
+<section class="detalle-contenido">
+  <div class="container detalle-grid">
+
+    <!-- TEXTO -->
+    <div class="detalle-texto">
+      <h3>{{ producto?.nombre }}</h3>
+
+      <p>{{ producto?.descripcion }}</p>
+
+      <h4>Protección Garantizada</h4>
+      <p>
+        Fabricadas con cartón de alta resistencia, ideales para transporte y almacenamiento.
+      </p>
+
+      <h4>Personalización</h4>
+      <p>
+        Tamaños, impresión y acabados adaptados a tu marca.
+      </p>
+    </div>
+
+    <!-- IMAGEN GRANDE -->
+    <div class="detalle-imagen">
+  <div class="image-wrapper">
+    <img [src]="producto?.imagen" [alt]="producto?.nombre">
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- FICHA TÉCNICA -->
+<section class="ficha-tecnica">
+  <div class="container">
+    <h2 class="section-title">Ficha Técnica</h2>
+
+    <div class="ficha-card">
+
+      <div class="ficha-imagen">
+        <img [src]="producto?.imagen" alt="">
+      </div>
+
+      <div class="ficha-tabla">
+
+        <div class="fila">
+          <span>Material Utilizado</span>
+          <span>Cartón</span>
+        </div>
+
+        <div class="fila">
+          <span>Tipo de estructura</span>
+          <span>Microcorrugado</span>
+        </div>
+
+        <div class="fila">
+          <span>Espesor</span>
+          <span>2mm</span>
+        </div>
+
+        <div class="fila">
+          <span>Tipo de Cartón</span>
+          <span>Kraft / Blanco</span>
+        </div>
+
+        <div class="fila">
+          <span>Personalizado</span>
+          <span>1 color o más</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

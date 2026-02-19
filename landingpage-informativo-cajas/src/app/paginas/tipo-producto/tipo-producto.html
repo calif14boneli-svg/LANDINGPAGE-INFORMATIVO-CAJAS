@@ -1,0 +1,36 @@
+<section class="tipo-producto">
+
+  <!-- HERO SUPERIOR -->
+  <div class="tipo-hero">
+    <div class="container">
+      <h2>Tipo de Producto</h2>
+      <p>Soluciones de embalaje diseñadas para cada necesidad.</p>
+    </div>
+  </div>
+
+  <!-- FRANJA BLANCA CON PRODUCTOS -->
+  <div class="franja-central">
+    <div class="container">
+
+      <div class="productos-grid">
+        
+        <div class="producto-card"
+             *ngFor="let producto of productos"
+             [routerLink]="['/tipoProducto', producto.id]">
+
+          <div class="producto-img">
+            <img [src]="producto.imagen" [alt]="producto.nombre">
+          </div>
+
+          <div class="producto-overlay">
+            <h3>{{ producto.nombre }}</h3>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>

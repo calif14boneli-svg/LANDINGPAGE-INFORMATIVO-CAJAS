@@ -1,0 +1,100 @@
+<!-- HERO SERVICIOS -->
+<section class="servicios-hero">
+
+  <div class="hero-overlay">
+
+    <div class="hero-contenido">
+      <h1>Nuestros Servicios</h1>
+      <p>Fabricamos cajas de cartón a medida para tu negocio</p>
+    </div>
+
+    <!-- SLIDER -->
+    <div class="slider-container">
+
+      <div class="slider-track" #track>
+
+        <div 
+  class="slide"
+  *ngFor="let service of services; let i = index"
+  [class.active]="i === currentIndex"
+  (click)="selectSlide(i)">
+
+          <img [src]="service.img" />
+
+          <div class="slide-content">
+            <h3>{{ service.title }}</h3>
+            <button
+  *ngIf="i === currentIndex"
+  [routerLink]="['/servicio', service.title]">
+  VER DETALLE
+</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- INDICADORES (AHORA DENTRO DEL CONTAINER) -->
+      <div class="slider-dots">
+  <span
+    *ngFor="let service of services; let i = index"
+    [class.active]="i === currentIndex"
+    (click)="selectSlide(i)">
+  </span>
+</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FRANJA BLANCA SERVICIOS -->
+<section class="servicios-lista">
+  <div class="container">
+
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-subtitle">
+      Descubre nuestra fábrica de empaques y derivados de cartón.
+    </p>
+
+    <div class="servicios-grid">
+
+      <div class="servicio-card">
+        <div class="icono">📦</div>
+        <h3>Servicio de Troquelado</h3>
+        <p>Diseños precisos y personalizados para empaques únicos.</p>
+      </div>
+
+      <div class="servicio-card">
+        <div class="icono">🧾</div>
+        <h3>Servicio de Laminado</h3>
+        <p>Acabado profesional que protege y mejora presentación.</p>
+      </div>
+
+      <div class="servicio-card">
+        <div class="icono">📚</div>
+        <h3>Servicio de Corrugado</h3>
+        <p>Empaques resistentes y versátiles para transporte seguro.</p>
+      </div>
+
+      <div class="servicio-card">
+        <div class="icono">🖨️</div>
+        <h3>Impresión Offset</h3>
+        <p>Colores vibrantes y acabados de alta calidad.</p>
+      </div>
+
+      <div class="servicio-card">
+        <div class="icono">🎨</div>
+        <h3>Impresión Serigráfica</h3>
+        <p>Diseños nítidos y duraderos que resaltan tu marca.</p>
+      </div>
+
+      <div class="servicio-card">
+        <div class="icono">✂️</div>
+        <h3>Corte Guillotina</h3>
+        <p>Precisión industrial para acabados perfectos.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>

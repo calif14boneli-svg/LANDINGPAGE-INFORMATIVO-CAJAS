@@ -1,0 +1,202 @@
+.servicios-hero {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0') center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: rgba(20,30,40,0.85);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+   align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* ===== ANIMACION SUAVE ===== */
+@keyframes smoothReveal {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+.hero-contenido h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: blur(10px);
+    transform: translateY(40px);
+    animation: smoothReveal 1.6s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.hero-contenido p {
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  filter: blur(10px);
+    transform: translateY(40px);
+    animation: smoothReveal 1.6s ease forwards;
+    animation-delay: 0.4s;
+}
+
+/* ===== SLIDER ESTILO IMAGEN 1 ===== */
+
+.slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; 
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+   gap: 40px;
+  transition: transform 0.8s ease;
+}
+
+/* TARJETAS */
+
+.slide {
+  position: relative;
+  min-width: 240px;
+  flex: 0 0 360px;
+  height: 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  opacity: 0.6;
+  transform: scale(0.85);
+  transition: all 0.6s ease;
+  cursor: pointer;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+  transition: 0.5s;
+}
+
+/* Overlay oscuro inferior */
+.slide::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+/* TEXTO */
+
+.slide-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.slide-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.slide-content button {
+  padding: 8px 16px;
+  border: 2px solid #4ea3ff;
+  background: transparent;
+  color: #4ea3ff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.slide-content button:hover {
+  background: #4ea3ff;
+  color: white;
+}
+
+/* TARJETA ACTIVA (CENTRAL) */
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 35px 70px rgba(0,0,0,0.6);
+}
+
+.slide.active img {
+  filter: brightness(1);
+}
+
+.slider-dots {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.slider-dots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: white;
+  opacity: 0.4;
+  border-radius: 50%;
+  margin: 0 6px;
+  transition: 0.3s;
+}
+
+.slider-dots span.active {
+  opacity: 1;
+  background: #4ea3ff;
+}
+
+@keyframes slideCards {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.servicios-lista {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  color: #666;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 3rem;
+}
+
+.servicio-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  transition: all 0.4s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px);
+  border-color: #e67e22;
+  box-shadow: 0 15px 35px rgba(230,126,34,0.2);
+}
+
+.icono {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}

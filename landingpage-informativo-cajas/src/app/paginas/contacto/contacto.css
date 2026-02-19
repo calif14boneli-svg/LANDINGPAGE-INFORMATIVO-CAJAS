@@ -1,7 +1,7 @@
 /* Hero Banner */
 .contact-hero {
     height: 400px;
-    background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)),
+    background: linear-gradient(rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.6)),
         url('https://www.fide.edu.pe/wp-content/uploads/2022/12/Call.jpg');
     background-size: cover;
     background-position: center;
@@ -11,6 +11,7 @@
     justify-content: center;
     text-align: center;
     color: white;
+    height: 50vh;
 }
 
 .hero-content h1 {

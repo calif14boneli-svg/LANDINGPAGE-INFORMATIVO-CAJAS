@@ -1,0 +1,295 @@
+/* Gallery Hero */
+.gallery-hero {
+    height: 350px;
+    background: linear-gradient(rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.6)),
+        url('https://img.freepik.com/foto-gratis/paletas-cajas-carton-almacen-listas-envio-distribucion_23-2152005498.jpg?semt=ais_user_personalization&w=740&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    height: 50vh;
+}
+
+.gallery-hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(30px);
+    animation: smoothReveal 1s ease forwards;
+}
+
+.gallery-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(30px);
+    animation: smoothReveal 1s ease forwards;
+}
+
+@keyframes smoothReveal {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* Filter Menu Styles */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+
+.filter-glass-bar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.6rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.filter-glass-bar::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.filter-btn {
+    padding: 0.8rem 1.6rem;
+    border: none;
+    background: transparent;
+    color: #4b5563;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-btn:hover {
+    color: #111827;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.filter-btn.active {
+    background: #111827;
+    color: white;
+    box-shadow: 0 4px 12px rgba(17, 24, 39, 0.25);
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #f29100;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Gallery Grid */
+.gallery-section {
+    padding: 5rem 0;
+    background: #f8fafc;
+    min-height: 800px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Gallery Items & Animations */
+.gallery-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: scaleUp 0.5s ease-out forwards;
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.image-wrapper {
+    position: relative;
+    padding-top: 75%;
+    /* 4:3 Aspect Ratio */
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.15);
+}
+
+/* Overlay Effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.2) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    color: white;
+    transform: translateY(30px);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gallery-item:hover .overlay-content {
+    transform: translateY(0);
+}
+
+.category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #f29100;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.overlay-content h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.btn-expand {
+    background: white;
+    color: #111827;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-expand:hover {
+    background: #f29100;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* No results Styles */
+.no-results {
+    text-align: center;
+    padding: 4rem;
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-hero {
+        height: 280px;
+    }
+
+    .gallery-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .filter-container {
+        padding: 0 10px;
+        justify-content: flex-start;
+    }
+
+    .filter-glass-bar {
+        padding: 0.4rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

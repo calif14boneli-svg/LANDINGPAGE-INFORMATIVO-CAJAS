@@ -61,18 +61,30 @@
         <div class="contact-main-grid">
             <!-- Form Side - PRESERVING ALL FIELDS -->
             <div class="contact-form-card">
-                <div class="form-header">
-                    <h3>Envíanos un Mensaje</h3>
-                    <p>Completa el formulario y nos pondremos en contacto contigo pronto.</p>
+                <!-- Toggle Switch -->
+                <div class="view-toggle">
+                    <span class="toggle-label" [class.active]="!isWhatsAppMode">Registra tu pedido</span>
+                    <label class="switch">
+                        <input type="checkbox" [(ngModel)]="isWhatsAppMode">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="toggle-label" [class.active]="isWhatsAppMode">Consultas por WhatsApp</span>
                 </div>
 
-                <form id="contactForm">
+                <div class="form-header" [class.whatsapp-active]="isWhatsAppMode">
+                    <h3>{{ isWhatsAppMode ? 'Envíanos un Mensaje Rápido' : 'Envíanos tus datos' }}</h3>
+                    <p>{{ isWhatsAppMode ? 'Escríbenos directamente por WhatsApp y te responderemos a la brevedad.' :
+                        'Completa el formulario y realiza tu pedido o consulta.' }}</p>
+                </div>
+
+                <!-- 1️⃣ Modo Formulario -->
+                <form #contactForm="ngForm" *ngIf="!isWhatsAppMode">
                     <!-- Selección de tipo de usuario -->
                     <div class="form-group">
                         <label>Soy *</label>
                         <div class="user-type-grid">
                             <label class="type-card">
-                                <input type="radio" name="userType" value="cliente" checked>
+                                <input type="radio" name="userType" value="cliente" [(ngModel)]="formData.userType">
                                 <div class="card-content">
                                     <div class="radio-circle"></div>
                                     <div class="text">
@@ -82,7 +94,7 @@
                                 </div>
                             </label>
                             <label class="type-card">
-                                <input type="radio" name="userType" value="proveedor">
+                                <input type="radio" name="userType" value="proveedor" [(ngModel)]="formData.userType">
                                 <div class="card-content">
                                     <div class="radio-circle"></div>
                                     <div class="text">
@@ -97,7 +109,7 @@
                     <!-- Tipo de consulta -->
                     <div class="form-group">
                         <label for="consultType">Tipo de consulta *</label>
-                        <select id="consultType" required>
+                        <select id="consultType" required [(ngModel)]="formData.consultType" name="consultType">
                             <option value="" disabled selected>Selecciona una opción</option>
                             <option value="cotizacion">Cotización de Productos</option>
                             <option value="asesoria">Asesoría Técnica</option>
@@ -109,7 +121,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="docType">Tipo de documento *</label>
-                            <select id="docType" required>
+                            <select id="docType" required [(ngModel)]="formData.docType" name="docType">
                                 <option value="" disabled selected>Selecciona un tipo</option>
                                 <option value="dni">DNI</option>
                                 <option value="ruc">RUC</option>
@@ -118,7 +130,8 @@
                         </div>
                         <div class="form-group">
                             <label for="docNumber">Número de documento *</label>
-                            <input type="text" id="docNumber" placeholder="Ej: 12345678" required>
+                            <input type="text" id="docNumber" placeholder="Ej: 12345678" required
+                                [(ngModel)]="formData.docNumber" name="docNumber">
                         </div>
                     </div>
 
@@ -132,7 +145,8 @@
                             </svg>
                             Nombre *
                         </label>
-                        <input type="text" id="name" placeholder="Tu nombre" required>
+                        <input type="text" id="name" placeholder="Tu nombre" required [(ngModel)]="formData.name"
+                            name="name">
                     </div>
 
                     <!-- Email y Teléfono -->
@@ -148,7 +162,8 @@
                                 </svg>
                                 Email *
                             </label>
-                            <input type="email" id="email" placeholder="tu@email.com" required>
+                            <input type="email" id="email" placeholder="tu@email.com" required
+                                [(ngModel)]="formData.email" name="email">
                         </div>
                         <div class="form-group">
                             <label for="phone">
@@ -160,7 +175,8 @@
                                 </svg>
                                 Teléfono *
                             </label>
-                            <input type="tel" id="phone" placeholder="+51 987 654 321" required>
+                            <input type="tel" id="phone" placeholder="+51 987 654 321" required
+                                [(ngModel)]="formData.phone" name="phone">
                         </div>
                     </div>
 
@@ -175,14 +191,39 @@
                         </label>
                         <textarea id="message" rows="4"
                             placeholder="Cuéntanos qué necesitas... incluye detalles como cantidades, colores, medidas específicas, etc."
-                            required></textarea>
+                            required [(ngModel)]="formData.message" name="message"></textarea>
                     </div>
 
-                    <button type="submit" class="btn-submit">
+                    <button type="button" class="btn-submit" (click)="mandarWhatsAppWeb()">
                         Enviar Mensaje
                         <span class="icon-arrow">→</span>
                     </button>
                 </form>
+
+                <!-- 2️⃣ Modo Mensaje Breve (WhatsApp) -->
+                <div class="whatsapp-quick-box" *ngIf="isWhatsAppMode">
+                    <div class="form-group">
+                        <label for="quickMessage">
+                            <svg class="label-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                            Escribe tu mensaje rápido *
+                        </label>
+                        <textarea id="quickMessage" rows="6" [(ngModel)]="whatsappQuickMessage"
+                            placeholder="Ej: Hola, me gustaría solicitar una cotización para cajas de cartón personalizadas."></textarea>
+                    </div>
+
+                    <button type="button" class="btn-submit btn-whatsapp" (click)="mandarWhatsAppRapido()">
+                        Enviar por WhatsApp
+                        <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             <!-- Map Side - PRESERVING CONFIG -->
@@ -194,5 +235,20 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
+
+<!-- Modal de Éxito -->
+<div class="success-modal-overlay" *ngIf="mostrarModal" (click)="cerrarModal()">
+    <div class="success-modal" (click)="$event.stopPropagation()">
+        <div class="modal-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+        <h3>¡Mensaje Enviado!</h3>
+        <p>Tu mensaje fue enviado exitosamente, por favor esperar la respuesta en menos de lo que canta un gallo.</p>
+        <button class="modal-btn" (click)="cerrarModal()">Entendido</button>
+    </div>
+</div>

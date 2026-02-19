@@ -4,6 +4,7 @@ import { NosotrosComponent } from './paginas/nosotros/nosotros';
 import { TipoProducto } from './paginas/tipo-producto/tipo-producto';
 import { ProductoDetalle } from './paginas/producto-detalle/producto-detalle';
 import { Servicios } from './paginas/servicios/servicios';
+import { ServicioDetalle } from './paginas/servicio-detalle/servicio-detalle';
 
 export const routes: Routes = [
 
@@ -12,5 +13,6 @@ export const routes: Routes = [
     { path: 'tipoProducto', component: TipoProducto },
 { path: 'tipoProducto/:id', component: ProductoDetalle },
 { path: 'servicios', component: Servicios },
+{ path: 'servicio/:nombre', component: ServicioDetalle },
   { path: '**', redirectTo: '' }
 ]

@@ -1,23 +1,50 @@
 <!-- HERO SERVICIOS -->
 <section class="servicios-hero">
+
   <div class="hero-overlay">
 
     <div class="hero-contenido">
       <h1>Nuestros Servicios</h1>
-      <p>Soluciones industriales para potenciar tu marca</p>
-      <button class="btn-hero">VER SERVICIOS</button>
+      <p>Fabricamos cajas de cartón a medida para tu negocio</p>
     </div>
 
-    <!-- Tarjetas flotantes -->
-    <div class="hero-cards">
-      <div class="hero-card">Troquelado</div>
-      <div class="hero-card">Laminado</div>
-      <div class="hero-card">Corrugado</div>
-      <div class="hero-card">Impresión Offset</div>
-      <div class="hero-card">Serigrafía</div>
-    </div>
+    <!-- SLIDER -->
+    <div class="slider-container">
 
+      <div class="slider-track" #track>
+
+        <div 
+  class="slide"
+  *ngFor="let service of services; let i = index"
+  [class.active]="i === currentIndex"
+  (click)="selectSlide(i)">
+
+          <img [src]="service.img" />
+
+          <div class="slide-content">
+            <h3>{{ service.title }}</h3>
+            <button
+  *ngIf="i === currentIndex"
+  [routerLink]="['/servicio', service.title]">
+  VER DETALLE
+</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- INDICADORES (AHORA DENTRO DEL CONTAINER) -->
+      <div class="slider-dots">
+  <span
+    *ngFor="let service of services; let i = index"
+    [class.active]="i === currentIndex"
+    (click)="selectSlide(i)">
+  </span>
+</div>
+    </div>
   </div>
+
 </section>
 
 <!-- FRANJA BLANCA SERVICIOS -->

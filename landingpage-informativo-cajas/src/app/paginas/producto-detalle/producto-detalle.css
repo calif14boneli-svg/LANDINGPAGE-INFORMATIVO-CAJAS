@@ -9,8 +9,21 @@
   text-align: center;
 }
 
+/* ===== ANIMACION SUAVE ===== */
+@keyframes smoothReveal {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
 .detalle-hero h2 {
   font-size: 2.5rem;
+  filter: blur(10px);
+    transform: translateY(40px);
+    animation: smoothReveal 1.6s ease forwards;
+    animation-delay: 0.4s;
 }
 
 /* CONTENIDO */
@@ -21,7 +34,7 @@
 
 .detalle-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr; /* 🔥 imagen más grande */
+  grid-template-columns: 1fr 1.2fr; 
   gap: 4rem;
   align-items: center;
 }
@@ -51,7 +64,7 @@
 
 .detalle-imagen img {
   width: 100%;
-  max-width: 600px; /* 🔥 tamaño controlado */
+  max-width: 600px; 
   border-radius: 20px;
   box-shadow: 0 30px 60px rgba(0,0,0,0.15);
   transition: transform 0.4s ease;
@@ -64,25 +77,25 @@
 /* FICHA */
 .ficha-tecnica {
   background: #f8f9fa;
-  padding: 3rem 0;   /* 🔥 antes 6rem */
+  padding: 3rem 0;   
 }
 
 .ficha-card {
   background: #cfa15a;
-  padding: 1.5rem;   /* 🔥 antes 2rem */
+  padding: 1.5rem;   
   border-radius: 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;       /* 🔥 antes 2rem */
-  max-width: 1000px; /* 🔥 controla el ancho */
-  margin: 0 auto;    /* centra el bloque */
+  gap: 1.5rem;       
+  max-width: 1000px; 
+  margin: 0 auto;    
 }
 
 .ficha-imagen {
   background: #2c3e50;
-  padding: 1.2rem;   /* 🔥 más compacto */
+  padding: 1.2rem;   
   border-radius: 12px;
-  height: 300px;     /* 🔥 antes 450px */
+  height: 300px;     
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +109,7 @@
 
 .ficha-tabla {
   background: #2c3e50;
-  padding: 1.5rem;   /* 🔥 antes 2rem */
+  padding: 1.5rem;   
   border-radius: 12px;
   color: white;
 }

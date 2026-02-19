@@ -1,0 +1,48 @@
+<section class="gallery-hero">
+    <div class="hero-content">
+        <h1>Galería de Productos</h1>
+        <p>Conoce nuestra amplia variedad de soluciones en cartón y embalaje industrial</p>
+    </div>
+</section>
+
+<section class="gallery-section">
+    <div class="container">
+        <!-- Modern Category Filter Menu -->
+        <div class="filter-container">
+            <div class="filter-glass-bar">
+                <button *ngFor="let cat of categories" (click)="setCategory(cat)"
+                    [class.active]="selectedCategory === cat" class="filter-btn">
+                    {{ cat }}
+                    <span class="dot" *ngIf="selectedCategory === cat"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Gallery Grid with Animation Container -->
+        <div class="gallery-grid">
+            <div class="gallery-item" *ngFor="let item of filteredItems" [attr.data-category]="item.category">
+                <div class="image-wrapper">
+                    <img [src]="item.img" [alt]="item.title" loading="lazy">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <span class="category">{{ item.category }}</span>
+                            <h3>{{ item.title }}</h3>
+                            <button class="btn-expand">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                                </svg>
+                                Ampliar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No results message -->
+        <div class="no-results" *ngIf="filteredItems.length === 0">
+            <p>No se encontraron imágenes en esta categoría.</p>
+        </div>
+    </div>
+</section>

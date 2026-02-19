@@ -1,21 +1,32 @@
-<header>
-    <div class="contact-info">
-        ventas@inpcar.com | 986-044097 - 980-077481
+<header class="header">
+    <div class="header-container">
+        <div class="contact-info">
+            <img src="https://decine21.com/images/noticias/0001/john-cena-coyote-acme.jpg" alt="Logo">
+            <span class="email">ventas@inpcar.com</span>
+            <a class="btn-contacto" href="#contacto">CONTÁCTENOS</a>
+        </div>
+
+        <button class="menu-toggle" (click)="toggleMenu()" [class.active]="menuOpen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="navbar" [class.open]="menuOpen">
+            <ul>
+                <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                        (click)="menuOpen = false">Inicio</a></li>
+                <li><a routerLink="/nosotros" routerLinkActive="active" (click)="menuOpen = false">Nosotros</a></li>
+                <li><a routerLink="/servicios" routerLinkActive="active" (click)="menuOpen = false">Servicios</a></li>
+                <li><a routerLink="/galeria" routerLinkActive="active" (click)="menuOpen = false">Galería</a></li>
+                <li><a routerLink="/contacto" routerLinkActive="active" (click)="menuOpen = false">Contacto</a></li>
+            </ul>
+        </nav>
     </div>
-    <nav>
-        <ul>
-            <li><a routerLink="/">Inicio</a></li>
-            <li><a routerLink="/nosotros">Nosotros</a></li>
-            <li><a routerLink="/tipoProducto">Tipo Producto</a></li>
-            <li><a routerLink="/servicios">Servicios</a></li>
-            <li><a routerLink="/galeria">Galería</a></li>
-            <li><a routerLink="/contacto">Contacto</a></li>
-        </ul>
-    </nav>
 </header>
 
 <main>
-    <router-outlet></router-outlet> 
+    <router-outlet></router-outlet>
 </main>
 
 <footer>

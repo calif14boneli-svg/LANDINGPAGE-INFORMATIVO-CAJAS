@@ -4,7 +4,8 @@
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     height: 70vh;
@@ -17,14 +18,21 @@
     padding: 0 1rem;
 }
 
+/* ===== TEXTO SUPERIOR ===== */
 .hero h3 {
     font-family: 'Outfit', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
+
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(30px);
+    animation: smoothReveal 1s ease forwards;
 }
 
+/* ===== TITULO PRINCIPAL ===== */
 .hero h4 {
     font-family: 'Outfit', sans-serif;
     font-size: 3.5rem;
@@ -32,8 +40,15 @@
     margin-bottom: 2rem;
     max-width: 800px;
     line-height: 1.1;
+
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(40px);
+    animation: smoothReveal 1.1s ease forwards;
+    animation-delay: 0.4s;
 }
 
+/* ===== BOTON ===== */
 .hero a {
     background: #e67e22;
     color: white;
@@ -44,6 +59,12 @@
     font-size: 1.1rem;
     transition: transform 0.3s, background 0.3s;
     box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(30px);
+    animation: smoothReveal 1.2s ease forwards;
+    animation-delay: 0.8s;
 }
 
 .hero a:hover {
@@ -51,104 +72,456 @@
     transform: translateY(-3px);
 }
 
-/* Productos Section */
-.productos {
-    padding: 5rem 10%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
-    background: #f9f9f9;
+/* ===== ANIMACION SUAVE ===== */
+@keyframes smoothReveal {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
 }
 
-.item {
-    background: white;
-    padding: 0;
-    border-radius: 12px;
+/* Soluciones Industriales Section */
+.soluciones-industriales {
+    padding: 6rem 10%;
+    background: linear-gradient(to right, #f9f9f9 50%, rgba(230, 126, 34, 0.04) 50%);
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
+}
+
+.container-split {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.item:hover {
-    transform: translateY(-10px);
+/* ===== LEFT CONTENT ===== */
+.content-left {
+    flex: 1;
+    animation: fadeInSlideLeft 0.8s ease-out forwards;
 }
 
-.item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    background: #eee;
-}
-
-.item-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.item h5 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    margin: 0 0 1rem 0;
-    color: #2c3e50;
-}
-
-.item p {
-    font-size: 0.95rem;
-    color: #7f8c8d;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-}
-
-.item a {
-    color: #e67e22;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
+.badge-envio {
     display: inline-flex;
     align-items: center;
+    gap: 8px;
+    color: #e67e22;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    border: 1px solid #ebd7cb;
 }
 
-.item a:after {
-    content: ' →';
-    margin-left: 5px;
-    transition: margin-left 0.3s;
-}
-
-.item a:hover:after {
-    margin-left: 10px;
-}
-
-/* Empresa Section */
-.empresa {
-    padding: 5rem 15%;
-    text-align: center;
-}
-
-.empresa h4 {
+.content-left h1 {
     font-family: 'Outfit', sans-serif;
-    font-size: 2rem;
-    color: #2c3e50;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: #111827;
+    margin-bottom: 20px;
 }
 
-.empresa p {
+.content-left h1 .highlight {
+    color: #e67e22;
+}
+
+.content-left p {
     font-size: 1.1rem;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto 2rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 90%;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.btn-catalogo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #e67e22;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-catalogo:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px #e67e22;
+}
+
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #e67e22;
+    font-family: 'Outfit', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* ===== RIGHT CONTENT ===== */
+.content-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    animation: fadeInSlideRight 0.8s ease-out forwards;
+}
+
+.showcase-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    border-bottom: 6px solid #f3f4f6;
+
+}
+
+.stock-tag {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: #e67e22;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+    z-index: 2;
+}
+
+.products-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.mini-card {
+    background: #ffffff;
+    border: 1px solid #f3f4f6;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.mini-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #d1fae5;
+}
+
+.mini-img {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mini-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.mini-card h6 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.specs {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.in-stock {
+    font-size: 0.75rem;
+    color: #e67e22;
+    font-weight: 600;
+    background: #fdfaec;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.check-float {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    background: #e67e22;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 15px rgba(196, 156, 27, 0.4);
+    border: 4px solid white;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInSlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .soluciones-industriales {
+        background: linear-gradient(to bottom, #f9f9f9 50%, rgba(230, 126, 34, 0.04) 50%);
+    }
+
+    .container-split {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .content-left {
+        text-align: center;
+    }
+
+    .content-left p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-actions,
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .content-right {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .content-left h1 {
+        font-size: 2.5rem;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+    }
+
+    .products-mini-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    padding: 6rem 10%;
+    background: #f9f9f9;
+    position: relative;
+}
+
+.container-benefits {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.8rem;
+    color: #111827;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.section-header p {
+    color: #6b7280;
+    font-size: 1.15rem;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+}
+
+.benefit-card {
+    background: white;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #f3f4f6;
+    height: 100%;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(230, 126, 34, 0.2);
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+}
+
+.icon-box svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+/* Benefit Colors */
+.icon-box.green {
+    background: #10b981;
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2);
+}
+
+.icon-box.blue {
+    background: #3b82f6;
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+}
+
+.icon-box.orange {
+    background: #e67e22;
+    box-shadow: 0 8px 16px rgba(230, 126, 34, 0.2);
+}
+
+.icon-box.red {
+    background: #ef4444;
+    box-shadow: 0 8px 16px rgba(239, 68, 68, 0.2);
+}
+
+.icon-box.purple {
+    background: #8b5cf6;
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.2);
+}
+
+.icon-box.indigo {
+    background: #6366f1;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+}
+
+.benefit-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    color: #111827;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.benefit-card p {
+    font-size: 0.85rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+/* Responsive Why Choose Us */
+@media (max-width: 1200px) {
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .hero h4 {
-        font-size: 2.2rem;
+    .why-choose-us {
+        padding: 4rem 5%;
     }
 
-    .productos {
-        padding: 3rem 5%;
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-card {
+        padding: 1.5rem;
     }
 }
